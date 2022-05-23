@@ -1,0 +1,58 @@
+{
+  "skill": [
+    {
+      "id": 1,
+      "name": "Java",
+      "level": "intermediate",
+      "practise": "mediate"
+    },
+    {
+      "id": 2,
+      "name": "Angular",
+      "level": "intermediate",
+      "practise": "low"
+    },
+    {
+      "name": "Java",
+      "level": "Medium",
+      "practise": "Low",
+      "id": 3
+    },
+    {
+      "name": "lol",
+      "level": "lolol",
+      "practise": "lolololo",
+      "id": 4
+    },
+    {
+      "name": "bf",
+      "level": "fbbff",
+      "practise": "bbfbf",
+      "id": 5
+    },
+    {
+      "name": "n",
+      "level": "gn",
+      "practise": "ng",
+      "id": 7
+    },
+    {
+      "name": "cfas",
+      "level": "ca",
+      "practise": "acs",
+      "id": 8
+    },
+    {
+      "name": "d",
+      "level": "d",
+      "practise": "d",
+      "id": 9
+    },
+    {
+      "name": "fr",
+      "level": "fer",
+      "practise": "free",
+      "id": 10
+    }
+  ]
+}
