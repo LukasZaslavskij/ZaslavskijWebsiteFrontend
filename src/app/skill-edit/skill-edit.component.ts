@@ -24,7 +24,7 @@ export class SkillEditComponent implements OnInit {
   updateSkill() {
     if(window.confirm('Are you sure, you want to update?')){
       this.restApi.updateSkill(this.id, this.skillData).subscribe(data => {
-        this.router.navigate(['/skills-list'])
+        this.router.navigate(['/skill-list'])
       })
     }
   }

@@ -10,7 +10,7 @@ export class skillCreateComponent implements OnInit {
   @Input() skillDetails = { name: '', level: '', practise: '' };
   constructor(public restApi: RestApiService, public router: Router) {}
   ngOnInit() {}
-  addSkill(dataSkill: any) {
+  addSkill() {
     this.restApi.createSkill(this.skillDetails).subscribe((data: {}) => {
       this.router.navigate(['/skill-list']);
     });

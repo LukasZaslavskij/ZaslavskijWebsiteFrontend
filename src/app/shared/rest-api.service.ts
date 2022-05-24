@@ -19,42 +19,43 @@ export class RestApiService {
       'Content-Type': 'application/json',
     }),
   };
+  
   // HttpClient API get() method => Fetch Skill list
   getSkills(): Observable<Skill> {
     return this.http
       .get<Skill>(this.apiURL + '/getList')
       .pipe(retry(1), catchError(this.handleError));
   }
+
   // HttpClient API get() method => Fetch Skill
   getSkill(id: any): Observable<Skill> {
     return this.http
       .get<Skill>(this.apiURL + '/getSkill/' + id)
       .pipe(retry(1), catchError(this.handleError));
   }
+
   // HttpClient API post() method => Create employee
-  createSkill(skill: any): Observable<Skill> {
-    return this.http
-      .post<Skill>(
-        this.apiURL + '/add',
-        JSON.stringify(skill),
-        this.httpOptions
+  createSkill(skill: Skill) {
+    return this.http.post
+    (
+      this.apiURL + '/add',
+      skill,{responseType: 'text'}
       )
-      .pipe(retry(1), catchError(this.handleError));
+        .pipe(retry(1), catchError(this.handleError));
   }
+
   // HttpClient API put() method => Update Skill
-  updateSkill(id: any, skill: any): Observable<Skill> {
+  updateSkill(id: any, skill: any) {
     return this.http
-      .put<Skill>(
+      .put(
         this.apiURL + '/edit/' + id,
-        JSON.stringify(skill),
-        this.httpOptions
-      )
-      .pipe(retry(1), catchError(this.handleError));
+        skill,{responseType: 'text'}
+      );
   }
   // HttpClient API delete() method => Delete Skill
   deleteSkill(id: any) {
     return this.http
-      .delete<Skill>(this.apiURL + '/delete/' + id, this.httpOptions)
+      .delete(this.apiURL + '/delete/' + id, {responseType: 'text'})
       .pipe(retry(1), catchError(this.handleError));
   }
   // Error handling
@@ -73,3 +74,5 @@ export class RestApiService {
     });
   }
 }
+
+

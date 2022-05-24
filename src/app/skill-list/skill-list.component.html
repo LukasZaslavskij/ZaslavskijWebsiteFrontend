@@ -27,15 +27,18 @@
               <td>{{ skill.level }}</td>
               <td>{{ skill.practise }}</td>
               <td>
-                <span class="edit" routerLink="/skill-edit/{{ skill.id }}"
-                  >Edit</span>
-                <span class="delete" (click)="deleteSkill(skill.id)"
-                  >Delete</span
-                >
+                <button class="btn-info " routerLink="/skill-edit/{{ skill.id }}"
+                  >Edit</button>
+                  &nbsp;&nbsp;&nbsp;
+                  <button class="btn-danger " (click)="deleteSkill(skill.id)"
+                  >Delete</button>
               </td>
             </tr>
           </tbody>
         </table>
+        <button class="btn btn-outline-primary" routerLink="/create-skill">
+          Add Skill
+        </button>
       </div>
     </div>
   </div>
