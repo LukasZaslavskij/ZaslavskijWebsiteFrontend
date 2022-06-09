@@ -7,15 +7,20 @@ import { AuthService } from "./auth.service";
 export class AuthGuard implements CanActivate{
     constructor(private authService: AuthService, private router: Router){}
     
+  
+
     canActivate(route: ActivatedRouteSnapshot, router: RouterStateSnapshot): | boolean
     | UrlTree
     | Promise<boolean | UrlTree>
     | Observable<boolean | UrlTree> {
-        if (this.authService.isUserLogin){
-            console.log(this.authService.isUserLogin)
+        
+    this.authService.autoLogin()
+
+        if (this.authService.userLoginInfo){
+            console.log(this.authService.userLoginInfo)
          return true
         }else
-        console.log(this.authService.isUserLogin)
+        console.log(this.authService.userLoginInfo)
         return this.router.createUrlTree(['/auth'])
         ;
 
