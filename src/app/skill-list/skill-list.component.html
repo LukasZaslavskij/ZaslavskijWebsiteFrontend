@@ -13,25 +13,26 @@
         <table class="table table-bordered">
           <thead>
             <tr>
-              <th scope="col">Skill Id</th>
+              
               <th scope="col">Name</th>
-              <th scope="col">Level</th>
-              <th scope="col">Practise</th>
               <th scope="col">Action</th>
+              
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let skill of Skill">
-              <td>{{ skill.id }}</td>
+              
               <td>{{ skill.name }}</td>
-              <td>{{ skill.level }}</td>
-              <td>{{ skill.practise }}</td>
+             
               <td>
                 <button class="btn-info " routerLink="/skill-edit/{{ skill.id }}"
                   >Edit</button>
                   &nbsp;&nbsp;&nbsp;
-                  <button class="btn-danger " (click)="deleteSkill(skill.id)"
+                <button class="btn-danger " (click)="deleteSkill(skill.id)"
                   >Delete</button>
+                  &nbsp;&nbsp;&nbsp;
+                <button class="btn-warning " routerLink="/skill-detail/{{skill.id}}"
+                  >Details</button>
               </td>
             </tr>
           </tbody>

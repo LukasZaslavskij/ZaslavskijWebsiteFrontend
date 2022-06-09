@@ -8,6 +8,9 @@ import { SkillEditComponent } from './skill-edit/skill-edit.component';
 import { SkillListComponent } from './skill-list/skill-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SkillDetailComponent } from './skill-detail/skill-detail.component';
+import { AuthComponent } from './auth/auth.component';
+import { AuthGuard } from './auth/auth.guard';
 
 
 
@@ -16,7 +19,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     skillCreateComponent,
     SkillEditComponent,
-    SkillListComponent
+    SkillListComponent,
+    SkillDetailComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +30,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [AuthGuard,SkillListComponent,skillCreateComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

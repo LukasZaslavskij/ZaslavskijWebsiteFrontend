@@ -34,7 +34,7 @@ export class RestApiService {
       .pipe(retry(1), catchError(this.handleError));
   }
 
-  // HttpClient API post() method => Create employee
+  // HttpClient API post() method => Create skill
   createSkill(skill: Skill) {
     return this.http.post
     (
