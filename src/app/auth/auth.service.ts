@@ -32,7 +32,7 @@ export class AuthService{
                 let hodnota= localStorage.getItem("myData")
                 console.log('hodnota je' + hodnota)
                 
-                if (hodnota='true') {
+                if (hodnota==='true') {
                     this.userLoginInfo=true;  
                 }else{
                     this.userLoginInfo=false;
@@ -44,7 +44,7 @@ export class AuthService{
     }
     autoLogin (){
         let hodnota= localStorage.getItem('myData')
-    if (hodnota='trueee') {
+    if (hodnota==='true') {
         this.userLoginInfo=true;  
     }else{
         this.userLoginInfo=false;
