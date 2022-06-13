@@ -7,15 +7,21 @@ import { User } from "./user.model";
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-    constructor(private route: Router) { }
-    user: BehaviorSubject<any> = new BehaviorSubject<any>({ email: 'dadaa', password: 'bbbbbbbb' });
+    constructor(private route: Router) { this.user$.next((JSON.parse(localStorage.getItem('myData')!))) }
+    user$: BehaviorSubject<User> = new BehaviorSubject<User>({ email: 'undefined', password: 'undefined' });
 
+    ngOnInit() {
+
+    }
 
     login(email: string, password: string) {
-        this.user.next({ email, password });
+        this.user$.next({ email, password });
 
-        localStorage.setItem('myData', this.user.getValue().email)
+        localStorage.setItem('myData', JSON.stringify(this.user$.value));
 
-        this.route.navigate(['/skill-list'])
+
+
+        this.route.navigate(['/skill-list']);
     }
+
 }

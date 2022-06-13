@@ -12,9 +12,9 @@ export class AuthGuard implements CanActivate {
         | Promise<boolean | UrlTree>
         | Observable<boolean | UrlTree> {
 
-        if ('lukas.zaslavskij@cgi.com' === localStorage.getItem("myData")) {
+        if ('lukas.zaslavskij@cgi.com' === this.authService.user$.value.email) {
 
-            return true
+            return true;
         } else
 
             return this.router.createUrlTree(['/auth']);
