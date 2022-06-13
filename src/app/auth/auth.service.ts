@@ -10,16 +10,10 @@ export class AuthService {
     constructor(private route: Router) { this.user$.next((JSON.parse(localStorage.getItem('myData')!))) }
     user$: BehaviorSubject<User> = new BehaviorSubject<User>({ email: 'undefined', password: 'undefined' });
 
-    ngOnInit() {
-
-    }
-
     login(email: string, password: string) {
         this.user$.next({ email, password });
 
         localStorage.setItem('myData', JSON.stringify(this.user$.value));
-
-
 
         this.route.navigate(['/skill-list']);
     }
