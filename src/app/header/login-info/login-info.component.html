@@ -6,8 +6,10 @@
         <ul class="nav navbar-nav navbar-right">
 
             <a style="cursor: pointer;"> Login email: {{this.authService.user$.value.email}}</a>
-            <button class="btn-info " routerLink="/auth">Login</button>
-
+            <div>
+                <button class="btn-info " routerLink="/auth">Login</button> |
+                <button class="btn-info " (click)="logout()">Logout</button>
+            </div>
         </ul>
     </div>
 </nav>

@@ -18,4 +18,6 @@ export class AuthService {
         this.route.navigate(['/skill-list']);
     }
 
+
+
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
@@ -6,12 +7,13 @@ import { AuthService } from 'src/app/auth/auth.service';
   templateUrl: './login-info.component.html',
   styleUrls: ['./login-info.component.css']
 })
-export class LoginInfoComponent implements OnInit {
+export class LoginInfoComponent {
 
-  constructor(public authService: AuthService) { }
+  constructor(private route: Router, public authService: AuthService) { }
 
-  ngOnInit(): void {
 
+  logout() {
+    this.authService.login('undefined', 'undefined')
+    this.route.navigate(['/auth']);
   }
-
 }
