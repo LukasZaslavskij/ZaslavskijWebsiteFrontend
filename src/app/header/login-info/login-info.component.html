@@ -1,14 +1,22 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default, border">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand">Zaslavskij Website</a>
+            <img src="assets/foto.jpg" alt="image">&nbsp; &nbsp; &nbsp;
+            <a class="navbar-brand"> Zaslavskij Website</a>
         </div>
         <ul class="nav navbar-nav navbar-right">
-
-            <a style="cursor: pointer;"> Login email: {{this.authService.user$.value.email}}</a>
+            <div *ngIf="this.authService.status">
+                <div class="no-data text-center">
+                    <a style="cursor: pointer;"> Login email: {{this.authService.user$.value.email}}</a>
+                    <br>
+                </div>
+                <div>
+                    <a style="cursor: pointer;">Acces {{ this.authService.accessGranted() ? 'granted' : 'denied'}}</a>
+                </div>
+            </div>
             <div>
                 <button class="btn-info " routerLink="/auth">Login</button> |
-                <button class="btn-info " (click)="logout()">Logout</button>
+                <button class="btn-info " (click)="this.authService.logout()">Logout</button>
             </div>
         </ul>
     </div>

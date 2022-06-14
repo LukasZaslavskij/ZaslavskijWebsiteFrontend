@@ -12,7 +12,7 @@ export class AuthGuard implements CanActivate {
         | Promise<boolean | UrlTree>
         | Observable<boolean | UrlTree> {
 
-        if ('lukas.zaslavskij@cgi.com' === this.authService.user$.value.email) {
+        if (this.authService.accessGranted()) {
 
             return true;
         } else

@@ -9,11 +9,5 @@ import { AuthService } from 'src/app/auth/auth.service';
 })
 export class LoginInfoComponent {
 
-  constructor(private route: Router, public authService: AuthService) { }
-
-
-  logout() {
-    this.authService.login('undefined', 'undefined')
-    this.route.navigate(['/auth']);
-  }
+  constructor(public authService: AuthService) { }
 }

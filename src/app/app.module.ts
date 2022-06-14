@@ -33,6 +33,7 @@ import { DropdownDirective } from './shared/dropdown.directive';
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
+
   ],
   providers: [AuthGuard, SkillListComponent, skillCreateComponent],
   bootstrap: [AppComponent]
