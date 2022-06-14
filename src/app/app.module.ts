@@ -11,6 +11,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SkillDetailComponent } from './skill-detail/skill-detail.component';
 import { AuthComponent } from './auth/auth.component';
 import { AuthGuard } from './auth/auth.guard';
+import { LoginInfoComponent } from './header/login-info/login-info.component';
+import { DropdownDirective } from './shared/dropdown.directive';
 
 
 
@@ -21,7 +23,9 @@ import { AuthGuard } from './auth/auth.guard';
     SkillEditComponent,
     SkillListComponent,
     SkillDetailComponent,
-    AuthComponent
+    AuthComponent,
+    LoginInfoComponent,
+    DropdownDirective,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +34,7 @@ import { AuthGuard } from './auth/auth.guard';
     ReactiveFormsModule,
     AppRoutingModule,
   ],
-  providers: [AuthGuard,SkillListComponent,skillCreateComponent],
+  providers: [AuthGuard, SkillListComponent, skillCreateComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
