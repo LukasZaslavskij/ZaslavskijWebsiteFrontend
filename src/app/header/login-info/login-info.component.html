@@ -1,23 +1,40 @@
-<nav class="navbar navbar-default, border">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <img src="assets/foto.jpg" alt="image">&nbsp; &nbsp; &nbsp;
+<nav class="navbar navbar-default border">
+    <div class="container" *ngIf="this.authService.status" id="dvojka">
+        <div class="navbar-header" id="jednickaaa">
+            <img src="assets/foto.jpg" alt="image">
+        </div>
+        <div>
             <a class="navbar-brand"> Zaslavskij Website</a>
         </div>
+
+        <div *ngIf="this.authService.accessGranted()">
+            <div class="dropdown" appDropdown>
+                <a style="cursor: pointer;" class="dropdown-toggle" role="button" id="options">Options </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a style="cursor: pointer;" href="/skill-list">Skills list</a>
+                    </li>
+                    <li>
+                        <a style="cursor: pointer;" href="/create-skill">Create skill</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
         <ul class="nav navbar-nav navbar-right">
-            <div *ngIf="this.authService.status">
+            <div>
                 <div class="no-data text-center">
                     <a style="cursor: pointer;"> Login email: {{this.authService.user$.value.email}}</a>
                     <br>
                 </div>
                 <div>
-                    <a style="cursor: pointer;">Acces {{ this.authService.accessGranted() ? 'granted' : 'denied'}}</a>
+                    <a style="cursor: pointer;">Acces {{ this.authService.accessGranted() ? 'granted' :
+                        'denied'}}</a>
                 </div>
             </div>
             <div>
                 <button class="btn-info " routerLink="/auth">Login</button> |
-                <button class="btn-info " (click)="this.authService.logout()">Logout</button>
+                <button class="btn-danger " (click)="this.authService.logout()">Logout</button>
             </div>
         </ul>
     </div>
-</nav>

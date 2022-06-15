@@ -1,45 +1,42 @@
 <div class="container custom-container-2">
-    <!-- Show it when there is no skill -->
-    <div class="no-data text-center" *ngIf="Skill.length == 0">
-      <p>There is no skill added yet!</p>
+  <!-- Show it when there is no skill -->
+  <div class="no-data text-center" *ngIf="Skill.length == 0">
+    <p>There is no skill added yet!</p>
+    <button class="btn-info btn-lg  " routerLink="/create-skill">
+      Add Skill
+    </button>
+  </div>
+  <!-- Skills list table, it hides when there is no skill -->
+  <div *ngIf="Skill.length !== 0">
+    <h3 class="mb-3 text-center">Skills List</h3>
+    <div class="col-md-12">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+
+            <th scope="col">Name</th>
+            <th scope="col">Action</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let skill of Skill">
+
+            <td>{{ skill.name }}</td>
+
+            <td>
+              <button class="btn-info " routerLink="/skill-edit/{{ skill.id }}">Edit</button>
+              &nbsp;&nbsp;&nbsp;
+              <button class="btn-danger " (click)="deleteSkill(skill.id)">Delete</button>
+              &nbsp;&nbsp;&nbsp;
+              <button class="btn-warning " routerLink="/skill-detail/{{skill.id}}">Details</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
       <button class="btn btn-outline-primary" routerLink="/create-skill">
         Add Skill
       </button>
     </div>
-    <!-- Skills list table, it hides when there is no skill -->
-    <div *ngIf="Skill.length !== 0">
-      <h3 class="mb-3 text-center">Skills List</h3>
-      <div class="col-md-12">
-        <table class="table table-bordered">
-          <thead>
-            <tr>
-              
-              <th scope="col">Name</th>
-              <th scope="col">Action</th>
-              
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let skill of Skill">
-              
-              <td>{{ skill.name }}</td>
-             
-              <td>
-                <button class="btn-info " routerLink="/skill-edit/{{ skill.id }}"
-                  >Edit</button>
-                  &nbsp;&nbsp;&nbsp;
-                <button class="btn-danger " (click)="deleteSkill(skill.id)"
-                  >Delete</button>
-                  &nbsp;&nbsp;&nbsp;
-                <button class="btn-warning " routerLink="/skill-detail/{{skill.id}}"
-                  >Details</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <button class="btn btn-outline-primary" routerLink="/create-skill">
-          Add Skill
-        </button>
-      </div>
-    </div>
   </div>
+</div>

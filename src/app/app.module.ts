@@ -12,7 +12,9 @@ import { SkillDetailComponent } from './skill-detail/skill-detail.component';
 import { AuthComponent } from './auth/auth.component';
 import { AuthGuard } from './auth/auth.guard';
 import { LoginInfoComponent } from './header/login-info/login-info.component';
-import { DropdownDirective } from './shared/dropdown.directive';
+import { MainPageComponent } from './main-page/main-page.component';
+import { DropdownDirective } from './shared/appDropdown.directive';
+
 
 
 
@@ -25,7 +27,9 @@ import { DropdownDirective } from './shared/dropdown.directive';
     SkillDetailComponent,
     AuthComponent,
     LoginInfoComponent,
-    DropdownDirective,
+    MainPageComponent,
+    DropdownDirective
+
   ],
   imports: [
     BrowserModule,

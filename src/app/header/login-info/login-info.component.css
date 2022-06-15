@@ -1,3 +1,15 @@
 img {
     height: 100px;
 }
+
+#jednickaaa {
+    position: relative;
+    border: 1px solid black;
+    left: 0px;
+}
+
+#options {
+    font-size: 30px;
+    background-color: rgb(228, 169, 176);
+    color: rgb(63, 36, 4);
+}

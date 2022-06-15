@@ -22,7 +22,7 @@ export class AuthService {
 
         localStorage.setItem('userData', JSON.stringify(this.user$.value));
 
-        this.route.navigate(['/skill-list']);
+        this.route.navigate(['/main']);
         this.status = true;
     }
     logout() {
