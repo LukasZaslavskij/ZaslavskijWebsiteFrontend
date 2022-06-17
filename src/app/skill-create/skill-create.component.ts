@@ -6,10 +6,10 @@ import { RestApiService } from '../shared/rest-api.service';
   templateUrl: './skill-create.component.html',
   styleUrls: ['./skill-create.component.css'],
 })
-export class skillCreateComponent implements OnInit {
-  @Input() skillDetails = { name: '', level: '', practise: '' };
-  constructor(public restApi: RestApiService, public router: Router) {}
-  ngOnInit() {}
+export class SkillCreateComponent implements OnInit {
+  skillDetails = { name: '', level: '', practise: '' };
+  constructor(public restApi: RestApiService, public router: Router) { }
+  ngOnInit() { }
   addSkill() {
     this.restApi.createSkill(this.skillDetails).subscribe((data: {}) => {
       this.router.navigate(['/skill-list']);

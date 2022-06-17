@@ -3,13 +3,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Skill } from '../shared/skill';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root',
 })
 export class RestApiService {
-  // Define API
-  apiURL = 'http://localhost:8080/skill';
-  constructor(private http: HttpClient) {}
+
+  constructor(private http: HttpClient) { }
   /*========================================
     CRUD Methods for consuming RESTful API
   =========================================*/
@@ -19,43 +19,43 @@ export class RestApiService {
       'Content-Type': 'application/json',
     }),
   };
-  
+
   // HttpClient API get() method => Fetch Skill list
   getSkills(): Observable<Skill> {
     return this.http
-      .get<Skill>(this.apiURL + '/getList')
+      .get<Skill>(environment.apiURL + '/getList')
       .pipe(retry(1), catchError(this.handleError));
   }
 
   // HttpClient API get() method => Fetch Skill
-  getSkill(id: any): Observable<Skill> {
+  getSkill(id: number): Observable<Skill> {
     return this.http
-      .get<Skill>(this.apiURL + '/getSkill/' + id)
+      .get<Skill>(environment.apiURL + '/getSkill/' + id)
       .pipe(retry(1), catchError(this.handleError));
   }
 
   // HttpClient API post() method => Create skill
   createSkill(skill: Skill) {
     return this.http.post
-    (
-      this.apiURL + '/add',
-      skill,{responseType: 'text'}
+      (
+        environment.apiURL + '/add',
+        skill, { responseType: 'text' }
       )
-        .pipe(retry(1), catchError(this.handleError));
+      .pipe(retry(1), catchError(this.handleError));
   }
 
   // HttpClient API put() method => Update Skill
-  updateSkill(id: any, skill: any) {
+  updateSkill(id: number, skill: string) {
     return this.http
       .put(
-        this.apiURL + '/edit/' + id,
-        skill,{responseType: 'text'}
+        environment.apiURL + '/edit/' + id,
+        skill, { responseType: 'text' }
       );
   }
   // HttpClient API delete() method => Delete Skill
-  deleteSkill(id: any) {
+  deleteSkill(id: number) {
     return this.http
-      .delete(this.apiURL + '/delete/' + id, {responseType: 'text'})
+      .delete(environment.apiURL + '/delete/' + id, { responseType: 'text' })
       .pipe(retry(1), catchError(this.handleError));
   }
   // Error handling

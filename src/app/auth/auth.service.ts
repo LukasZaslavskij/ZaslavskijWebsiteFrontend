@@ -8,37 +8,34 @@ import { User } from "./user.model";
 @Injectable({ providedIn: 'root' })
 export class AuthService {
     constructor(private route: Router) {
-        const initUser = (JSON.parse(localStorage.getItem('userData')!))
-        this.user$.next(initUser)
-        if (this.user$.value.email === 'undefined') {
-            this.status = false;
-        } else
-            this.status = true;
+        const initUser = localStorage.getItem(AuthService.userData);
+        if (this.user$ !== undefined) {
+            this.user$.next(JSON.parse(initUser!))
+        }
     }
-    user$: BehaviorSubject<User> = new BehaviorSubject<User>({ email: 'undefined', password: 'undefined' });
-    status: boolean = false
+    static userData: string = 'userData';
+    user$: BehaviorSubject<User | undefined> = new BehaviorSubject<User | undefined>(undefined);
+
     login(email: string, password: string) {
-        this.user$.next({ email, password });
-
-        localStorage.setItem('userData', JSON.stringify(this.user$.value));
-
+        this.user$.next(new User(email, password));
+        localStorage.setItem(AuthService.userData, JSON.stringify(this.user$.value));
         this.route.navigate(['/main']);
-        this.status = true;
     }
+
     logout() {
-        this.login('undefined', 'undefined');
+        this.user$.next(undefined);
+        localStorage.removeItem(AuthService.userData);
         this.route.navigate(['/auth']);
-        this.status = false;
+
     }
+
     accessGranted() {
-        if ('lukas.zaslavskij@cgi.com' === this.user$.value.email) {
+        if ('lukas.zaslavskij@cgi.com' == this.user$.value?.email) {
             return true;
         } else {
             return false;
         }
     }
-
-
 
 }
 

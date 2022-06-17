@@ -1,10 +1,10 @@
 <nav class="navbar navbar-default border">
-    <div class="container" *ngIf="this.authService.status" id="dvojka">
+    <div class="container" *ngIf="this.authService.user$.value" id="dvojka">
         <div class="navbar-header" id="jednickaaa">
             <img src="assets/foto.jpg" alt="image">
         </div>
         <div>
-            <a class="navbar-brand"> Zaslavskij Website</a>
+            <a class="navbar-brand " href="/main" style="color:black;font-size: 30px "> Zaslavskij Website</a>
         </div>
 
         <div *ngIf="this.authService.accessGranted()">
@@ -24,7 +24,7 @@
         <ul class="nav navbar-nav navbar-right">
             <div>
                 <div class="no-data text-center">
-                    <a style="cursor: pointer;"> Login email: {{this.authService.user$.value.email}}</a>
+                    <a style="cursor: pointer;">Login email: {{this.authService.user$!.value!.email!}} </a>
                     <br>
                 </div>
                 <div>

@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { skillCreateComponent } from './skill-create/skill-create.component';
+import { SkillCreateComponent } from './skill-create/skill-create.component';
 import { SkillEditComponent } from './skill-edit/skill-edit.component';
 import { SkillListComponent } from './skill-list/skill-list.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -21,7 +21,7 @@ import { DropdownDirective } from './shared/appDropdown.directive';
 @NgModule({
   declarations: [
     AppComponent,
-    skillCreateComponent,
+    SkillCreateComponent,
     SkillEditComponent,
     SkillListComponent,
     SkillDetailComponent,
@@ -39,7 +39,7 @@ import { DropdownDirective } from './shared/appDropdown.directive';
     AppRoutingModule,
 
   ],
-  providers: [AuthGuard, SkillListComponent, skillCreateComponent],
+  providers: [AuthGuard, SkillListComponent, SkillCreateComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
