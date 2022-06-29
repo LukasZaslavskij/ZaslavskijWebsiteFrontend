@@ -4,6 +4,7 @@ import { Skill } from '../shared/skill';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { Experience } from './experience';
 @Injectable({
   providedIn: 'root',
 })
@@ -52,12 +53,37 @@ export class RestApiService {
         skill, { responseType: 'text' }
       );
   }
+
   // HttpClient API delete() method => Delete Skill
   deleteSkill(id: number) {
     return this.http
       .delete(environment.apiURL + '/delete/' + id, { responseType: 'text' })
       .pipe(retry(1), catchError(this.handleError));
   }
+
+  updateExperience(id: number, experience: string) {
+    return this.http
+      .put(
+        environment.apiURL + '/editExperience/' + id,
+        experience, { responseType: 'text' }
+      )
+  }
+
+  deleteExperience(id: number) {
+    return this.http
+      .delete(environment.apiURL + '/deleteExperience/' + id, { responseType: 'text' })
+      .pipe(retry(1), catchError(this.handleError));
+  }
+
+  createExperience(experience: Experience, id: number) {
+    return this.http.put
+      (
+        environment.apiURL + '/addExperience/' + id,
+        experience, { responseType: 'text' }
+      )
+      .pipe(retry(1), catchError(this.handleError));
+  }
+
   // Error handling
   handleError(error: any) {
     let errorMessage = '';

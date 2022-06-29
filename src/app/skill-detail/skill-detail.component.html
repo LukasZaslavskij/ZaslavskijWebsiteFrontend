@@ -1,19 +1,56 @@
+<div>
+  <h2>List of completed courses and projects in <br>
+    <h1> {{skillDetail.name}}</h1>
+  </h2>
+</div>
+
 <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th scope="col">id</th>
-        <th scope="col">Name</th>
-        <th scope="col">Level</th>
-        <th scope="col">Practise</th>
-        
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>{{ skillDetail.id }}</td>
-        <td>{{ skillDetail.name }}</td>
-        <td>{{ skillDetail.level }}</td>
-        <td>{{ skillDetail.practise }}</td>
-      </tr>
-    </tbody>
-  </table>
+  <thead>
+    <tr>
+      <th scope="col">Courses</th>
+      <th scope="col">Projects</th>
+      <th scope="col">Actions</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let experiences of skillDetail.experiences">
+      <td>{{experiences.course}}</td>
+      <td>{{experiences.project}}</td>
+      <td>
+        <button class="btn-info" (click)="this.action='edit';this.expId=experiences.id ">Edit</button>
+        &nbsp;&nbsp;&nbsp;
+        <button class="btn-danger " (click)="this.expId=experiences.id;deleteExperience() ">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div class="row">
+  <a href="/skill-list">Back to skills list</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <button class="btn-warning " (click)="this.action='add'">Add new Experience</button>
+</div>
+<div *ngIf="action=='edit'">
+  <h3 class="mb-3 text-center">Update Experience</h3>
+  <div class="form-group">
+    <input type="text" [(ngModel)]="exps.course" class="form-control" placeholder="New name of Course">
+  </div>
+  <div class="form-group">
+    <input type="text" [(ngModel)]="exps.project" class="form-control" placeholder="New name of Project">
+  </div>
+  <div class="form-group">
+    <button class="btn btn-success btn-lg btn-block" (click)="updateExperience()">Update Skill</button>
+  </div>
+</div>
+<div *ngIf="action=='add'">
+  <h3 class="mb-3 text-center">Update Experience</h3>
+  <div class="form-group">
+    <input type="text" [(ngModel)]="exps.course" class="form-control" placeholder="Course">
+  </div>
+  <div class="form-group">
+    <input type="text" [(ngModel)]="exps.project" class="form-control" placeholder="Project">
+  </div>
+  <div class="form-group">
+    <button class="btn btn-success btn-lg btn-block" (click)="addExperience()">Add
+      Skill</button>
+  </div>
+</div>

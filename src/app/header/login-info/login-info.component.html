@@ -3,8 +3,19 @@
         <div class="navbar-header" id="jednickaaa">
             <img src="assets/foto.jpg" alt="image">
         </div>
-        <div>
-            <a class="navbar-brand " href="/main" style="color:black;font-size: 30px "> Zaslavskij Website</a>
+        <div id="linked" style="height: 80px;">
+            <div><a class="navbar-brand " href="/main" style="color:black;font-size: 30px "> Zaslavskij Website</a>
+            </div>
+            <div> <a href="https://www.linkedin.com/in/lukaszaslavskij/">
+                    <img src="assets/linkedin.jpg" style="height: 20px;margin-left: 30px;" />
+                </a>
+                <a href="https://github.com/LukasZaslavskij">
+                    <img src="assets/github.jpg" style="height: 20px;margin-left: 20px;" />
+                </a>
+                <a [href]="emailstring" target="_top">
+                    <img src="assets/mail.jpg" style="height: 20px;margin-left: 14px;" />
+                </a>
+            </div>
         </div>
 
         <div *ngIf="this.authService.accessGranted()">

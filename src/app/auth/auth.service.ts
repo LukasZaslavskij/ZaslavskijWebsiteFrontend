@@ -9,7 +9,7 @@ import { User } from "./user.model";
 export class AuthService {
     constructor(private route: Router) {
         const initUser = localStorage.getItem(AuthService.userData);
-        if (this.user$ !== undefined) {
+        if (initUser !== undefined) {
             this.user$.next(JSON.parse(initUser!))
         }
     }
