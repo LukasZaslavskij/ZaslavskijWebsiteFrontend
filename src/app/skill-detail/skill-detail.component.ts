@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Experience } from '../shared/experience';
 import { RestApiService } from '../shared/rest-api.service';
@@ -21,33 +21,37 @@ export class SkillDetailComponent implements OnInit {
   ) {
   }
   ngOnInit() {
+    this.loadExperience();
+  }
+  loadExperience() {
     this.restApi.getSkill(this.id).subscribe((data: {}) => {
       this.skillDetail = data;
       console.log(this.skillDetail.experiences);
-    }
-    )
+    })
   }
+
   updateExperience() {
     if (window.confirm('Are you sure, you want to update experience?')) {
       this.restApi.updateExperience(this.expId!, this.exps).subscribe(data => {
+        this.loadExperience()
       })
     }
     this.action = undefined
-    location.reload();
+
   }
 
   addExperience() {
     console.log(this.exps, this.id)
     this.restApi.createExperience(this.exps, this.id).subscribe(data => {
+      this.loadExperience()
     })
     this.action = undefined
-    location.reload();
   }
 
   deleteExperience() {
     this.restApi.deleteExperience(this.expId!).subscribe(data => {
+      this.loadExperience()
     })
-    location.reload();
   }
 
 }

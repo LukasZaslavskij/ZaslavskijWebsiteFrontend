@@ -1,0 +1,119 @@
+<div *ngIf="status=='default'">
+    <div>
+        <div style="float: left;height: 105px">
+            <img src="assets/Bobcat.jpg" alt="image"> &nbsp;&nbsp;&nbsp;
+        </div>
+        <div style="float: left;height: 105px;line-height: 105px;margin: 0;">
+            <a style="font-size: 20px;cursor: pointer;" (click)="this.status='bobcat'">Bobcat INFO</a>
+        </div>
+    </div>
+    <br>
+    <div>
+        <div style="float: left;height: 105px">
+            <img src="assets/Hella.jpg" alt="image"> &nbsp;&nbsp;&nbsp;
+        </div>
+        <div style="float: left;height: 105px;line-height: 105px;margin: 0;">
+            <a style="font-size: 20px;cursor: pointer;" (click)="this.status='hella'">Hella INFO</a>
+        </div>
+    </div>
+    <br>
+    <div>
+        <div style="float: left;height: 105px">
+            <img src="assets/CGI.jpg" alt="image"> &nbsp;&nbsp;&nbsp;
+        </div>
+        <div style="float: left;height: 105px;line-height: 105px;margin: 0;">
+            <a style="font-size: 20px;cursor: pointer;" (click)="this.status='cgi'">CGI INFO</a>
+        </div>
+    </div>
+    <br>
+</div>
+
+
+<div *ngIf="status=='bobcat'">
+    <p>
+        <b style="font-size: 20px;">Bobcat EMEA </b><br>
+        <b style="font-size: 15px;"> Test Engineer Trainee <br></b>
+        Part-time <br>
+        march 2018 – july 2021 · 3 years 5 months <br>
+        Dobříš, Central Bohemia, Czech Republic
+    </p>
+    <ul>
+        <p> <b> Responsibilities</b></p>
+        <li>Sensors and devices maintenance</li>
+        <li>Test preparation and data acquisition support (cooling, hydraulics, acoustics, structural and vibration
+            tests)</li>
+        <li>Data analysis and reporting</li>
+        <li>Metrology supply chain coordination</li>
+        <li>Administrative support of team leaders</li>
+    </ul>
+
+    <button style="float: left" (click)="status='default'">back</button>
+</div>
+
+
+<div *ngIf="status=='hella'">
+    <p>
+        <b style="font-size: 20px;">Hella (Forvia) </b><br> <br>
+        <b style="font-size: 15px;">Test Engineer </b><br>
+        Full-time <br>
+        september 2021 - january 2022 · 5 months <br>
+        Ostrava, Moravia-Silesia, Czech Republic
+    </p>
+    <ul>
+        <p> <b> Responsibilities</b></p>
+        <li>Test preparations and data acquisition (cut of light, life time tests, leak tests, torque tests, vibration
+            tests, climatic tests)</li>
+        <li>Data analysis and creating of reports</li>
+        <li>Creating test measurement instructions</li>
+        <li>Administrative work</li>
+    </ul><br>
+    <p>
+        <b style="font-size: 15px;">Test Engineer Senior </b> <br>
+        Full-time <br>
+        january 2022 - may 2022 · 5 months <br>
+        Ostrava, Moravia-Silesia, Czech Republic
+    </p>
+    <ul>
+        <p> <b> Responsibilities</b></p>
+        <li>Leading of test assistants</li>
+        <li>Test planning</li>
+        <li>Test preparations and data acquisition (cut of light, life time tests, leak tests, torque tests, vibration
+            tests, climatic tests)</li>
+        <li>Data analysis and creating of reports</li>
+        <li>Creating test measurement instructions</li>
+        <li>Administrative work</li>
+    </ul>
+
+    <button style="float: left" (click)="status='default'">back</button>
+</div>
+
+
+<div *ngIf="status=='cgi'">
+    <p>
+        <b style="font-size: 20px;">CGI </b><br>
+        <b style="font-size: 15px;"> Junior Java Developer <br></b>
+        Full-time <br>
+        june 2022 – now<br>
+        Ostrava, Moravia-Silesia, Czech Republic
+    </p>
+    <ul>
+        <p> <b> Responsibilities</b></p>
+        <li>Web development using:
+            <ul>
+                <li>Java</li>
+                <li>spring boot</li>
+                <li>rest</li>
+                <li>SQL</li>
+                <li>Angular</li>
+                <li>javascript</li>
+                <li>typescript</li>
+                <li>postman</li>
+            </ul>
+        </li>
+        <li>Working in agile team</li>
+        <li>Cooperate with experienced colleagues</li>
+    </ul>
+
+    <button style="float: left" (click)="status='default'">back</button>
+</div>
+&nbsp;&nbsp;<button (click)="closeDialog()">close</button>

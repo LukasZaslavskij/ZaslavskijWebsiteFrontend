@@ -25,6 +25,8 @@
                     <li>
                         <a style="cursor: pointer;" href="/skill-list">Skills list</a>
                     </li>
+                    <mat-divider style="border-top-color: rgb(0, 0, 0);
+                    border-top-width: 1px;"></mat-divider>
                     <li>
                         <a style="cursor: pointer;" href="/create-skill">Create skill</a>
                     </li>
@@ -32,20 +34,28 @@
             </div>
         </div>
 
-        <ul class="nav navbar-nav navbar-right">
-            <div>
-                <div class="no-data text-center">
-                    <a style="cursor: pointer;">Login email: {{this.authService.user$!.value!.email!}} </a>
-                    <br>
-                </div>
-                <div>
-                    <a style="cursor: pointer;">Acces {{ this.authService.accessGranted() ? 'granted' :
+
+        <div class="dropdown" appDropdown>
+            <a style="cursor: pointer;" class="dropdown-toggle" role="button" id="loginInfo">Login info </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a>Login email: {{this.authService.user$!.value!.email!}} </a>
+                </li>
+                <mat-divider></mat-divider>
+                <li>
+                    <a>Acces {{ this.authService.accessGranted() ? 'granted' :
                         'denied'}}</a>
-                </div>
-            </div>
-            <div>
-                <button class="btn-info " routerLink="/auth">Login</button> |
-                <button class="btn-danger " (click)="this.authService.logout()">Logout</button>
-            </div>
-        </ul>
+                </li>
+                <mat-divider></mat-divider>
+                <li>
+                    <a style="cursor: pointer;background-color: rgb(231, 121, 121);"
+                        (click)="this.authService.logout()">Logout</a>
+                </li>
+            </ul>
+        </div>
+
+
+
+
+
     </div>

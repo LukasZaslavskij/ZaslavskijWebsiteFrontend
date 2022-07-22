@@ -8,7 +8,17 @@
   </div>
   <!-- Skills list table, it hides when there is no skill -->
   <div *ngIf="skills.length !== 0">
-    <h3 class="mb-3 text-center">Skills List</h3>
+
+
+    <form class="wrap">
+      <div class="search">
+        <h3 class="mb-3 text-center">Skills List</h3>
+        <input class="searchTerm" type="text" name="searchTerm" placeholder="Filter by skill name"
+          [(ngModel)]="searchTerm" (input)="search(searchTerm)" />
+      </div>
+    </form>
+    <br><br>
+
     <div class="col-md-12">
       <table class="table table-bordered">
         <thead>
@@ -22,7 +32,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let skill of skills">
+          <tr *ngFor="let skill of skills | searchFilter: searchTerm">
 
             <td>{{ skill.name }}</td>
             <td>{{ skill.level }}</td>
